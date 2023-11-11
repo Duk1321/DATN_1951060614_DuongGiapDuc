@@ -45,7 +45,7 @@ public class MapController : MonoBehaviour
                 SpawnChunk();
             }
         }
-        else if (pm.moveDir.x == 0 && pm.moveDir.y < 0) // player move up
+        else if (pm.moveDir.x == 0 && pm.moveDir.y > 0) // player move up
         {
             if (!Physics2D.OverlapCircle(currentChunk.transform.Find("Up").position, checkerRadius, terrainMask))
             {
@@ -53,7 +53,7 @@ public class MapController : MonoBehaviour
                 SpawnChunk();
             }
         }
-        else if (pm.moveDir.x == 0 && pm.moveDir.y > 0) // player move down
+        else if (pm.moveDir.x == 0 && pm.moveDir.y < 0) // player move down
         {
             if (!Physics2D.OverlapCircle(currentChunk.transform.Find("Down").position, checkerRadius, terrainMask))
             {
