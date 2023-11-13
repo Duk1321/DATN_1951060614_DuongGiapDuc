@@ -13,10 +13,13 @@ public class PlayerMovement : MonoBehaviour
     public float lastVerticalVector;
     [HideInInspector]
     public Vector2 moveDir;
+    [HideInInspector]
+    public Vector2 lastMovedVector;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        lastMovedVector = new Vector2(1, 0f); // Do this so when player start spawn the projectile will be right
     }
 
     void Update()
@@ -39,11 +42,18 @@ public class PlayerMovement : MonoBehaviour
         if(moveDir.x != 0)
         {
             lastHorizontalVector = moveDir.x;
+            lastMovedVector = new Vector2(lastHorizontalVector, 0f); // last moved X
         }
 
         if(moveDir.y != 0)
         {
             lastVerticalVector = moveDir.y;
+            lastMovedVector = new Vector2(0f, lastVerticalVector); // last moved Y
+        }
+
+        if(moveDir.x != 0 && moveDir.y != 0)
+        {
+            lastMovedVector = new Vector2(lastHorizontalVector, lastVerticalVector); // while moving
         }
     }
 

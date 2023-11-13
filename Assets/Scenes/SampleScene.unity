@@ -191,7 +191,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 5.1383452
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -221,6 +221,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &799298850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4309900910857280245, guid: e79821616077e19499c4ec86bd5bb40f, type: 3}
+  m_PrefabInstance: {fileID: 4309900911967802662}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1387247803
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +265,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   currentChunk: {fileID: 0}
+  spawnedChunks:
+  - {fileID: 799298850}
+  maxOpDist: 50
+  optimizerCooldownDuration: 1
 --- !u!4 &1387247805
 Transform:
   m_ObjectHideFlags: 0
@@ -404,7 +413,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0390625, y: -0.1171875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1600042137}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -420,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd1c74eb49965146b6c27c34100aa1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 3
   lastHorizontalVector: 0
   lastVerticalVector: 0
   moveDir: {x: 0, y: 0}
@@ -455,6 +465,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0282dfddc985104684994e6db2d48c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1600042136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1600042137}
+  - component: {fileID: 1600042138}
+  m_Layer: 0
+  m_Name: Knife Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1600042137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600042136}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1482287284}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1600042138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600042136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b13c15ca062d6a40b1f4bf591f787d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6936837080758393609, guid: 0eeff900c5d942a4382f28dc8d887651, type: 3}
+  damage: 0
+  speed: 10
+  cooldownDuration: 2
+  perrce: 0
 --- !u!1001 &4309900911967802662
 PrefabInstance:
   m_ObjectHideFlags: 0
