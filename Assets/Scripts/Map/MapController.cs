@@ -13,14 +13,44 @@ public class MapController : MonoBehaviour
     PlayerMovement pm;
     public GameObject currentChunk;
 
+    [Header("Optimization")]
+    public List<GameObject> spawnedChunks;
+    GameObject lastestChunk;
+    public float maxOpDist;
+    float opDist;
+    float optimizerCooldown;
+    public float optimizerCooldownDuration;
+
     void Start()
     {
         pm = FindObjectOfType<PlayerMovement>();
+        /*StartedMapSpawn();*/
+    }
+
+    private void StartedMapSpawn()
+    {
+        noTerrainPosition = currentChunk.transform.Find("Right").position;
+        SpawnChunk();
+        noTerrainPosition = currentChunk.transform.Find("Left").position;
+        SpawnChunk();
+        noTerrainPosition = currentChunk.transform.Find("Up").position;
+        SpawnChunk();
+        noTerrainPosition = currentChunk.transform.Find("Down").position;
+        SpawnChunk();
+        noTerrainPosition = currentChunk.transform.Find("Down Right").position;
+        SpawnChunk();
+        noTerrainPosition = currentChunk.transform.Find("Down Left").position;
+        SpawnChunk();
+        noTerrainPosition = currentChunk.transform.Find("Up Right").position;
+        SpawnChunk();
+        noTerrainPosition = currentChunk.transform.Find("Up Left").position;
+        SpawnChunk();
     }
 
     void Update()
     {
         ChunkChecker();
+        ChunkOptimize();
     }
 
     private void ChunkChecker()
@@ -35,6 +65,10 @@ public class MapController : MonoBehaviour
             {
                 noTerrainPosition = currentChunk.transform.Find("Right").position;
                 SpawnChunk();
+                /*noTerrainPosition = currentChunk.transform.Find("Down Right").position;
+                SpawnChunk();
+                noTerrainPosition = currentChunk.transform.Find("Up Right").position;
+                SpawnChunk();*/
             }
         }
         else if (pm.moveDir.x < 0 && pm.moveDir.y == 0) // player move to the left
@@ -43,6 +77,10 @@ public class MapController : MonoBehaviour
             {
                 noTerrainPosition = currentChunk.transform.Find("Left").position;
                 SpawnChunk();
+                /*noTerrainPosition = currentChunk.transform.Find("Up Left").position;
+                SpawnChunk();
+                noTerrainPosition = currentChunk.transform.Find("Down Left").position;
+                SpawnChunk();*/
             }
         }
         else if (pm.moveDir.x == 0 && pm.moveDir.y > 0) // player move up
@@ -51,6 +89,10 @@ public class MapController : MonoBehaviour
             {
                 noTerrainPosition = currentChunk.transform.Find("Up").position;
                 SpawnChunk();
+               /* noTerrainPosition = currentChunk.transform.Find("Up Right").position;
+                SpawnChunk();
+                noTerrainPosition = currentChunk.transform.Find("Up Left").position;
+                SpawnChunk();*/
             }
         }
         else if (pm.moveDir.x == 0 && pm.moveDir.y < 0) // player move down
@@ -59,6 +101,10 @@ public class MapController : MonoBehaviour
             {
                 noTerrainPosition = currentChunk.transform.Find("Down").position;
                 SpawnChunk();
+                /*noTerrainPosition = currentChunk.transform.Find("Down Right").position;
+                SpawnChunk();
+                noTerrainPosition = currentChunk.transform.Find("Down Left").position;
+                SpawnChunk();*/
             }
         }
         else if (pm.moveDir.x > 0 && pm.moveDir.y < 0) // player move down right
@@ -67,6 +113,10 @@ public class MapController : MonoBehaviour
             {
                 noTerrainPosition = currentChunk.transform.Find("Down Right").position;
                 SpawnChunk();
+                /*noTerrainPosition = currentChunk.transform.Find("Right").position;
+                SpawnChunk();
+                noTerrainPosition = currentChunk.transform.Find("Down").position;
+                SpawnChunk();*/
             }
         }
         else if (pm.moveDir.x < 0 && pm.moveDir.y < 0) // player move down left
@@ -75,6 +125,10 @@ public class MapController : MonoBehaviour
             {
                 noTerrainPosition = currentChunk.transform.Find("Down Left").position;
                 SpawnChunk();
+                /*noTerrainPosition = currentChunk.transform.Find("Left").position;
+                SpawnChunk();
+                noTerrainPosition = currentChunk.transform.Find("Down Left").position;
+                SpawnChunk();*/
             }
         }
         else if (pm.moveDir.x > 0 && pm.moveDir.y > 0) // player move up right
@@ -98,6 +152,34 @@ public class MapController : MonoBehaviour
     void SpawnChunk()
     {
         int rand = UnityEngine.Random.Range(0, terrainChunks.Count);
-        Instantiate(terrainChunks[rand], noTerrainPosition, Quaternion.identity);
+        lastestChunk = Instantiate(terrainChunks[rand], noTerrainPosition, Quaternion.identity);
+        spawnedChunks.Add(lastestChunk);
     }
+    private void ChunkOptimize()
+    {
+        optimizerCooldown -= Time.deltaTime;
+
+        if(optimizerCooldown <= 0) 
+        {
+            optimizerCooldown = optimizerCooldownDuration;
+        }
+        else
+        {
+            return;
+        }
+
+        foreach(GameObject chunk in spawnedChunks)
+        {
+            opDist = Vector3.Distance(player.transform.position, chunk.transform.position);
+            if(opDist > maxOpDist)
+            {
+                chunk.SetActive(false);
+            }
+            else
+            {
+                chunk.SetActive(true);
+            }
+        }
+    }
+
 }
