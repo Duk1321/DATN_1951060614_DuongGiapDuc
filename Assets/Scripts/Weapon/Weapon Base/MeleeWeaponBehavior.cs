@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,33 @@ using UnityEngine;
 
 public class MeleeWeaponBehavior : MonoBehaviour
 {
+    public WeaponScriptableObjects weaponData;
     public float destroyAfterSeconds;
-    // Start is called before the first frame update
+
+    //current Stat
+    protected float currentDamage;
+    protected float currentSpeed;
+    protected float currentCooldownDuration;
+    protected int currentPierce;
+
+    void Awake()
+    {
+        currentDamage = weaponData.Damage; 
+        currentSpeed = weaponData.Speed;
+        currentCooldownDuration = weaponData.CooldownDuration;
+        currentPierce = weaponData.Perrce;
+    }
+
     protected virtual void Start()
     {
         Destroy(gameObject, destroyAfterSeconds);
+    }
+    protected virtual void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Enemy"))
+        {
+            EnemyStat enemy = collider.GetComponent<EnemyStat>();
+            enemy.TakeDamage(currentDamage);
+        }
     }
 }

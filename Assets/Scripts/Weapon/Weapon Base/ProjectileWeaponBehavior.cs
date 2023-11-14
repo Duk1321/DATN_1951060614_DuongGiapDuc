@@ -9,10 +9,25 @@ using UnityEngine;
 //
 public class ProjectileWeaponBehavior : MonoBehaviour
 {
+    public WeaponScriptableObjects weaponData;
     protected Vector3 direction;
     public float destroyAfterSeconds;
 
- 
+    //current Stat
+    protected float currentDamage;
+    protected float currentSpeed;
+    protected float currentCooldownDuation;
+    protected int currentPierce;
+
+
+    void Awake()
+    {
+        currentDamage = weaponData.Damage;
+        currentSpeed = weaponData.Speed;
+        currentCooldownDuation = weaponData.CooldownDuration;
+        currentPierce = weaponData.Perrce;
+    }
+
     protected virtual void Start()
     {
         Destroy(gameObject, destroyAfterSeconds);
@@ -64,5 +79,24 @@ public class ProjectileWeaponBehavior : MonoBehaviour
 
         transform.localScale = scale;
         transform.rotation = Quaternion.Euler(rotation);
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Enemy"))
+        {
+            EnemyStat enemy = collider.GetComponent<EnemyStat>();
+            enemy.TakeDamage(currentDamage);
+            ReducePierce();
+        }
+    }
+
+    void ReducePierce()
+    {
+        currentPierce--;
+        if (currentPierce <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

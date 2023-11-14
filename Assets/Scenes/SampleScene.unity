@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &484072597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 484072598}
+  - component: {fileID: 484072599}
+  m_Layer: 0
+  m_Name: Garlic Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &484072598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484072597}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1482287284}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &484072599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484072597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0898c38255baad7418eb21bc1612b70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: acac9bf95d22bc642887796fdbc30601, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,13 +270,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4309900910857280245, guid: e79821616077e19499c4ec86bd5bb40f, type: 3}
   m_PrefabInstance: {fileID: 4309900911967802662}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1336212231
+--- !u!1001 &1376675376
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8764670262264168900, guid: 215a3f4f923860544b8f04d99198a518, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3633198471666653265, guid: 215a3f4f923860544b8f04d99198a518, type: 3}
       propertyPath: m_Name
       value: Bat
@@ -243,11 +291,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3633198471666653268, guid: 215a3f4f923860544b8f04d99198a518, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.6977916
+      value: -5.3237815
       objectReference: {fileID: 0}
     - target: {fileID: 3633198471666653268, guid: 215a3f4f923860544b8f04d99198a518, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.29801857
+      value: -0.28933933
       objectReference: {fileID: 0}
     - target: {fileID: 3633198471666653268, guid: 215a3f4f923860544b8f04d99198a518, type: 3}
       propertyPath: m_LocalPosition.z
@@ -446,9 +494,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 97238103
+  m_SortingLayer: 3
+  m_SortingOrder: 20
   m_Sprite: {fileID: 3934776110834691092, guid: 223d2ad353b04ef45a8bd2ec202c5e88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -472,6 +520,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1600042137}
+  - {fileID: 484072598}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -539,7 +588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1600042137
 Transform:
   m_ObjectHideFlags: 0
@@ -566,11 +615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b13c15ca062d6a40b1f4bf591f787d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6936837080758393609, guid: 0eeff900c5d942a4382f28dc8d887651, type: 3}
-  damage: 0
-  speed: 10
-  cooldownDuration: 2
-  perrce: 0
+  weaponData: {fileID: 11400000, guid: 67e7f5fd522a929449794a4a11aeaaca, type: 2}
 --- !u!1001 &4309900911967802662
 PrefabInstance:
   m_ObjectHideFlags: 0
