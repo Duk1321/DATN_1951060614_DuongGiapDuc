@@ -21,5 +21,13 @@ public class GarlicBehavior : MeleeWeaponBehavior
 
             markedEnemies.Add(collider.gameObject); // marked enemy add to the list
         }
+        else if (collider.CompareTag("Prop") && !markedEnemies.Contains(collider.gameObject))
+        {
+            if (collider.gameObject.TryGetComponent(out BreakableProps breakable))
+            {
+                breakable.TakeDamage(currentDamage);
+                markedEnemies.Add(collider.gameObject);
+            }
+        }
     }
 }

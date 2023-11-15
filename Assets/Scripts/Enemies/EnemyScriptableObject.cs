@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="EnemyScripableObject", menuName ="ScripableObjects/Enemy")]
+[CreateAssetMenu(fileName ="EnemyScripableObject", menuName ="ScriptableObjects/Enemy")]
 public class EnemyScriptableObject : ScriptableObject
 {
     //Enemy Stat
