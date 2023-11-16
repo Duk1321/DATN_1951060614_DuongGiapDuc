@@ -15,10 +15,11 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 lastMovedVector;
 
     Rigidbody2D rb;
-    public CharacterScriptableObject characterData;
+    PlayerStat player;
 
     private void Start()
     {
+        player = GetComponent<PlayerStat>();
         rb = GetComponent<Rigidbody2D>();
         lastMovedVector = new Vector2(1, 0f); // Do this so when player start spawn the projectile will be right
     }
@@ -60,6 +61,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector2(moveDir.x * characterData.MoveSpeed, moveDir.y * characterData.MoveSpeed);
+        rb.velocity = new Vector2(moveDir.x * player.currentMoveSpeed, moveDir.y * player.currentMoveSpeed);
     }
 }

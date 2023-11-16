@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExperienceGem : Pickup, ICollectable
+public class HealthPotion : Pickup, ICollectable
 {
-    public int experienceGranted;
+    public int healthToRestore;
+
     public void Collect()
     {
         PlayerStat player = FindObjectOfType<PlayerStat>();
-        player.IncreaseExperience(experienceGranted);
+        player.RestoreHealth(healthToRestore);
     }
 }
