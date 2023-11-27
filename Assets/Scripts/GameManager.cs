@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     public enum GameState
     {
         Gameplay,
@@ -19,7 +20,9 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     public GameObject pauseScreen;
+    public GameObject resultScreen;
 
+    [Header("Curren Stat Display")]
     public Text currentHealthDisplay;
     public Text currentRecoveryDisplay;
     public Text currentMoveSpeedDisplay;
@@ -27,9 +30,27 @@ public class GameManager : MonoBehaviour
     public Text currentProjectileSpeedDisplay;
     public Text currentMagnetDisplay;
 
+    [Header("Results Screen Displays")]
+    public Image chosenCharacterImage;
+    public Text chosenCharacterName;
+    public Text levelReachedDisplay;
+    public List<Image> chosenWeaponsUI = new List<Image>(6);
+    public List<Image> chosenPassiveUI = new List<Image>(6);
+
+
+
+    public bool isGameOver = false;
+
     void Awake()
     {
-        currentState = GameState.Gameplay;
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("EXTRA" + this + "DELETE");
+        }
         DisableScreen();
     }
 
@@ -46,6 +67,13 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.GameOver:
+                if (!isGameOver)
+                {
+                    isGameOver = true;
+                    Time.timeScale = 0f;
+                    Debug.Log("Game is over");
+                    DisplayResults();
+                }
                 break;
             
             default:
@@ -100,5 +128,62 @@ public class GameManager : MonoBehaviour
     void DisableScreen()
     {
         pauseScreen.SetActive(false);
+        resultScreen.SetActive(false);
+    }
+
+    public void GameOver()
+    {
+        ChangeState(GameState.GameOver);
+    }
+
+    void DisplayResults()
+    {
+        resultScreen.SetActive(true);
+    }
+
+    public void AssignChosenCharacterUI(CharacterScriptableObject chosenCharacterData)
+    {
+        chosenCharacterImage.sprite = chosenCharacterData.Icon;
+        chosenCharacterName.text = chosenCharacterData.name;
+    }
+
+    public void AssignLevelReaced(int levelReachedData)
+    {
+        levelReachedDisplay.text = levelReachedData.ToString();
+    }
+
+    public void AssignChosenWeaponsAndPassiveUI(List<Image> chosenWeaponsData, List<Image> chosenPassiveData)
+    {
+        if(chosenWeaponsData.Count != chosenWeaponsUI.Count || chosenPassiveData.Count != chosenPassiveUI.Count)
+        {
+            Debug.Log("Chosen weapon and passive items data list have dif lengths");
+            return;
+        }
+
+        for(int i =  0; i < chosenWeaponsUI.Count; i++)
+        {
+            if (chosenWeaponsData[i].sprite)
+            {
+                chosenWeaponsUI[i].enabled = true;
+                chosenWeaponsUI[i].sprite = chosenWeaponsData[i].sprite;
+            }
+            else
+            {
+                chosenWeaponsUI[i].enabled = false;
+            }
+        }
+
+        for (int i = 0; i < chosenPassiveUI.Count; i++)
+        {
+            if (chosenPassiveData[i].sprite)
+            {
+                chosenPassiveUI[i].enabled = true;
+                chosenPassiveUI[i].sprite = chosenPassiveData[i].sprite;
+            }
+            else
+            {
+                chosenPassiveUI[i].enabled = false;
+            }
+        }
     }
 }

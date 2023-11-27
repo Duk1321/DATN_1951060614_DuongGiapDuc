@@ -36,6 +36,10 @@ public class PlayerMovement : MonoBehaviour
 
     void InputManagement()
     {
+        if(Time.timeScale == 0)
+        {
+            return;
+        }
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
