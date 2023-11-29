@@ -19,4 +19,6 @@ MonoBehaviour:
   perrce: 0
   level: 2
   nextLevelPrefab: {fileID: 0}
+  name: Garlic Level 2
+  description: Decrease cooldown by 0.5
   icon: {fileID: 21300000, guid: 7680ddc644bd4e347ad42a02515620d6, type: 3}

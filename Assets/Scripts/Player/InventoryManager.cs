@@ -25,7 +25,7 @@ public class InventoryManager : MonoBehaviour
     public class PassiveItemUpgrade
     {
         public GameObject initiaPassiveItem;
-        public WeaponScriptableObjects passiveItemData;
+        public PassiveItemScriptableObject passiveItemData;
     }
 
     [System.Serializable]
@@ -135,7 +135,7 @@ public class InventoryManager : MonoBehaviour
                     bool newWeapon = false;
                     for(int i = 0; i < weaponSlots.Count; i++)
                     {
-                        if (weaponSlots[i] == null && weaponSlots[i].weaponData == chosenWeaponUpgrade.weaponData)
+                        if (weaponSlots[i] != null && weaponSlots[i].weaponData == chosenWeaponUpgrade.weaponData)
                         {
                             newWeapon = false;
                             if(!newWeapon)
@@ -212,7 +212,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void RemoveAndAplyUpgrades()
+    public void RemoveAndApplyUpgrades()
     {
         RemoveUpgradeOptions();
         ApplyUpgradeOptions();

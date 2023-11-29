@@ -176,6 +176,7 @@ public class GameManager : MonoBehaviour
 
     public void AssignLevelReaced(int levelReachedData)
     {
+        Debug.Log("Level run");
         levelReachedDisplay.text = levelReachedData.ToString();
     }
 
@@ -222,7 +223,7 @@ public class GameManager : MonoBehaviour
 
         if (stopwatchTime >= timeLimit)
         {
-            GameOver();
+            playerObject.SendMessage("Kill");
         }
     }
 
@@ -237,14 +238,14 @@ public class GameManager : MonoBehaviour
     public void StartLevelUp()
     {
         ChangeState(GameState.LevelUp);
-        playerObject.SendMessage("RemoveAndAplyUpgrades");
+        playerObject.SendMessage("RemoveAndApplyUpgrades");
     }
 
     public void EndLevelUp()
     {
         choosingUpgrade = false;
         Time.timeScale = 1f; // resume the game
-        levelUpScreen.SetActive(true);
+        levelUpScreen.SetActive(false);
         ChangeState(GameState.Gameplay);
     }
 }
