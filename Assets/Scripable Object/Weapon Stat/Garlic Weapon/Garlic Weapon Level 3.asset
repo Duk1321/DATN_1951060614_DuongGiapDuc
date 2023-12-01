@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53fec81f9847a714d8329481135d9a0d, type: 3}
-  m_Name: Garlic Weapon Level 2
+  m_Name: Garlic Weapon Level 3
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5545037235639578862, guid: f5724d01f4b7ee9429182f254e6bb754, type: 3}
-  damage: 5
+  prefab: {fileID: 5545037235639578862, guid: 81ea0c6f3ca191a44bf70ce278c0cf9a, type: 3}
+  damage: 10
   speed: 0
   cooldownDuration: 2.5
   perrce: 0
   level: 2
-  nextLevelPrefab: {fileID: 3755263026811238501, guid: 9b28a8e391298664f829b57c61ec8d4b, type: 3}
-  name: Garlic Level 2
-  description: Decrease cooldown by 0.5
+  nextLevelPrefab: {fileID: 0}
+  name: Garlic Level 3
+  description: Incease Damage By 5
   icon: {fileID: 21300000, guid: 7680ddc644bd4e347ad42a02515620d6, type: 3}
