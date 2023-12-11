@@ -4274,24 +4274,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - waveName: 
+  - waveName: wave 1
     enemyGroups:
     - enemyName: Bat
-      enemyCount: 10
+      enemyCount: 5
       spawnCount: 0
       enemyPrefab: {fileID: 3633198471666653265, guid: 215a3f4f923860544b8f04d99198a518, type: 3}
-    - enemyName: Red bat
+    waveQuota: 5
+    spawnInterval: 1
+    spawnCount: 0
+  - waveName: wave 2
+    enemyGroups:
+    - enemyName: red bat
       enemyCount: 2
       spawnCount: 0
       enemyPrefab: {fileID: 3633198471666653265, guid: 746810ffd5f6f5e48a7909dad7584603, type: 3}
-    waveQuota: 0
-    spawnInterval: 1
+    waveQuota: 2
+    spawnInterval: 3
     spawnCount: 0
   currentWaveCount: 0
   enemiesAlive: 0
-  maxEnemiesAllowed: 4
+  maxEnemiesAllowed: 5
   maxEnemiesReached: 0
-  waveInterval: 6
+  waveInterval: 5
   relativeSpawnPosition:
   - {fileID: 216048661}
   - {fileID: 1180920691}
