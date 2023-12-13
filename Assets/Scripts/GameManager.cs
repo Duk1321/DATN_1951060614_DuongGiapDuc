@@ -26,25 +26,25 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Curren Stat Display")]
-    public Text currentHealthDisplay;
-    public Text currentRecoveryDisplay;
-    public Text currentMoveSpeedDisplay;
-    public Text currentMightDisplay;
-    public Text currentProjectileSpeedDisplay;
-    public Text currentMagnetDisplay;
+    public TMPro.TMP_Text currentHealthDisplay;
+    public TMPro.TMP_Text currentRecoveryDisplay;
+    public TMPro.TMP_Text currentMoveSpeedDisplay;
+    public TMPro.TMP_Text currentMightDisplay;
+    public TMPro.TMP_Text currentProjectileSpeedDisplay;
+    public TMPro.TMP_Text currentMagnetDisplay;
 
     [Header("Results Screen Displays")]
     public Image chosenCharacterImage;
-    public Text chosenCharacterName;
-    public Text levelReachedDisplay;
-    public Text timeSurviveDisplay;
+    public TMPro.TMP_Text chosenCharacterName;
+    public TMPro.TMP_Text levelReachedDisplay;
+    public TMPro.TMP_Text timeSurviveDisplay;
     public List<Image> chosenWeaponsUI = new List<Image>(6);
     public List<Image> chosenPassiveUI = new List<Image>(6);
 
     [Header("Stopwatch")]
     public float timeLimit; //limit in the second
     float stopwatchTime; // how many laps have pass the timeLimit
-    public Text stopwatchDisplay;
+    public TMPro.TMP_Text stopwatchDisplay;
 
     // check game over or not
     public bool isGameOver = false;

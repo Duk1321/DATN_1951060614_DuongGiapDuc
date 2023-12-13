@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+public class Pickup : MonoBehaviour, ICollectable
 {
     protected bool hasBeenCollected = false;
 

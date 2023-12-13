@@ -24,9 +24,13 @@ public class PlayerCollector : MonoBehaviour
         // check if the game object has the ICollectable interface
         if(collision.gameObject.TryGetComponent(out ICollectable collectable))
         {
+            /*collision.gameObject.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, pullSpeed * Time.deltaTime).normalized;*/
+            
+            
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             Vector2 forceDirection = (transform.position - collision.transform.position).normalized;
             rb.AddForce(forceDirection * pullSpeed);
+
 
             //if it does, call the method
             collectable.Collect();
