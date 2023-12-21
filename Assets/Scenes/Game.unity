@@ -1244,7 +1244,7 @@ MonoBehaviour:
   - {fileID: 1692069672}
   - {fileID: 253842278}
   - {fileID: 1260773863}
-  timeLimit: 15
+  timeLimit: 100
   stopwatchDisplay: {fileID: 1489491456}
   isGameOver: 0
   playerObject: {fileID: 1482287280}
