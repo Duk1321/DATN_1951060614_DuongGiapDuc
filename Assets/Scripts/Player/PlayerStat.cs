@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerStat : MonoBehaviour
 {
+    [HideInInspector]
     public CharacterScriptableObject characterData;
 
     //current Stat
@@ -16,7 +17,6 @@ public class PlayerStat : MonoBehaviour
     float currentMight;
     float currentProjectileSpeed;
     float currentMagnet;
-
 
 
     public float CurrentHealth
@@ -115,6 +115,8 @@ public class PlayerStat : MonoBehaviour
         }
     }
 
+
+    public ParticleSystem damageEffect;
 
     //Experience and level of the player
     [Header("Experience/Level")]
@@ -256,6 +258,8 @@ public class PlayerStat : MonoBehaviour
         if(!isInvincible)
         {
             CurrentHealth -= dmg;
+
+            if(damageEffect) Instantiate(damageEffect, transform.position, Quaternion.identity);
 
             invincibilityTimer = invincibilityDuration;
             isInvincible = true;

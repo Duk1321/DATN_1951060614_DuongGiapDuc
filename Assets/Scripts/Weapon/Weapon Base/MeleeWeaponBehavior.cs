@@ -16,6 +16,7 @@ public class MeleeWeaponBehavior : MonoBehaviour
     //current Stat
     protected float currentDamage;
     protected float currentSpeed;
+    protected float returnDamage;
     protected float currentCooldownDuration;
     protected int currentPierce;
 
@@ -29,7 +30,7 @@ public class MeleeWeaponBehavior : MonoBehaviour
 
     public float GetCurrentDamage()
     {
-        return currentDamage *= FindObjectOfType<PlayerStat>().CurrentMight;
+        return returnDamage = currentDamage * FindObjectOfType<PlayerStat>().CurrentMight;
     }
 
     protected virtual void Start()
@@ -41,7 +42,7 @@ public class MeleeWeaponBehavior : MonoBehaviour
         if (collider.CompareTag("Enemy"))
         {
             EnemyStat enemy = collider.GetComponent<EnemyStat>();
-            enemy.TakeDamage(GetCurrentDamage());
+            enemy.TakeDamage(GetCurrentDamage(), transform.position);
         }
         else if (collider.CompareTag("Prop"))
         {
