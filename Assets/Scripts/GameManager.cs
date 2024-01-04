@@ -188,6 +188,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator GenerateFloatingTextCoroutine(string text, Transform target, float duration = 1f, float speed = 50f)
     {
+        // Create gameobject damage text floating
         GameObject textObj = new GameObject("Damage Floating Text");
         RectTransform rect = textObj.AddComponent<RectTransform>();
         TextMeshProUGUI tmPro = textObj.AddComponent<TextMeshProUGUI>();
@@ -196,13 +197,19 @@ public class GameManager : MonoBehaviour
         tmPro.verticalAlignment = VerticalAlignmentOptions.Middle;
         tmPro.fontSize = textFontSize;
         if (textFont) tmPro.font = textFont;
+        // end
+
+        //set position for rect
         rect.position = referenceCamera.WorldToScreenPoint(target.position);
 
+        //destroy after sometime
         Destroy(textObj, duration);
 
+        //spawn it in destination canvas
         textObj.transform.SetParent(instance.damageTextCanvas.transform);
         textObj.transform.SetAsFirstSibling();
 
+        
         WaitForEndOfFrame w = new WaitForEndOfFrame();
         float t = 0;
         float yOffset = 0;
