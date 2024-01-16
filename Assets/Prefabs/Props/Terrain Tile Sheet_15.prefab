@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7342332315935562655}
   - component: {fileID: -6187700382563545527}
   - component: {fileID: 2091768466890257661}
+  - component: {fileID: 1359600110056822758}
   m_Layer: 0
   m_Name: Terrain Tile Sheet_15
   m_TagString: Prop
@@ -123,3 +124,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1359600110056822758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6091475670856764600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc11ca05946f3504da360c72f2e7614b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: health potion
+    itemPrefab: {fileID: 2820247677682976754, guid: 2bb561dd3d25b1d438af95298bbe19c5, type: 3}
+    dropRate: 100

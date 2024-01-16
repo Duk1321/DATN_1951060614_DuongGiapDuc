@@ -150,7 +150,7 @@ public class PlayerStat : MonoBehaviour
     public Image expBar;
     public TMPro.TMP_Text levelText;
 
-    public GameObject firstPassiveItemTest, secondPassiveItemTest;
+    //public GameObject firstPassiveItemTest, secondPassiveItemTest;
 
     void Awake()
     {

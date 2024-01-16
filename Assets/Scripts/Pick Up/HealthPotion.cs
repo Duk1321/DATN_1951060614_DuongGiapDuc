@@ -19,5 +19,6 @@ public class HealthPotion : Pickup
 
         PlayerStat player = FindObjectOfType<PlayerStat>();
         player.RestoreHealth(healthToRestore);
+        player.UpgradeHealhBar();
     }
 }

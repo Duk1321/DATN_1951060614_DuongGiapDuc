@@ -41,6 +41,15 @@ public class MapController : MonoBehaviour
             return;
         }
 
+        //Right
+        //Left
+        //Up
+        //Down
+        //Up Left
+        //Up Right
+        //Down Left
+        //Down Right
+
         Vector3 moveDir = player.transform.position - playerLastPosition;
         playerLastPosition = player.transform.position;
 
@@ -50,20 +59,27 @@ public class MapController : MonoBehaviour
 
         if (directionName.Contains("Up")){
             CheckAndSpawnChunk("Up");
+            CheckAndSpawnChunk("Up Right");
+            CheckAndSpawnChunk("Up Left");
         }
         if (directionName.Contains("Down"))
         {
             CheckAndSpawnChunk("Down");
+            CheckAndSpawnChunk("Down Left");
+            CheckAndSpawnChunk("Down Right");
         }
         if (directionName.Contains("Right"))
         {
             CheckAndSpawnChunk("Right");
+            CheckAndSpawnChunk("Up Right");
+            CheckAndSpawnChunk("Down Right");
         }
         if (directionName.Contains("Left"))
         {
             CheckAndSpawnChunk("Left");
+            CheckAndSpawnChunk("Up Left");
+            CheckAndSpawnChunk("Up Right");
         }
-
     }
 
     void CheckAndSpawnChunk(string direction)
