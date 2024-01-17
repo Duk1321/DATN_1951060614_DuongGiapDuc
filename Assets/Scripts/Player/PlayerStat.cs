@@ -306,13 +306,15 @@ public class PlayerStat : MonoBehaviour
         if(CurrentHealth < characterData.MaxHealth)
         {
             CurrentHealth += currentRecovery * Time.deltaTime;
-
+            
             //if health exceed max hp change it back to the cap
-            if(CurrentHealth > characterData.MaxHealth)
+            if (CurrentHealth > characterData.MaxHealth)
             {
-                CurrentHealth = characterData.MaxHealth;   
+                CurrentHealth = characterData.MaxHealth;
             }
         }
+
+        UpgradeHealhBar();
     }
 
     public void SpawnWeapon(GameObject weapon)
