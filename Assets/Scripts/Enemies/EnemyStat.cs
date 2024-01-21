@@ -20,7 +20,7 @@ public class EnemyStat : MonoBehaviour
     Transform player;
 
     [Header("Damage Feedback")]
-    public Color damageColor = new Color(1, 0, 0, 1);
+    public Color damageColor = new Color(1, 1, 1);
     public float damageFlashDuration = 0.2f;
     public float deathFadeTime = 0.6f;
     Color originalColor;
@@ -55,7 +55,7 @@ public class EnemyStat : MonoBehaviour
         currentHealth -= dmg;
         StartCoroutine(DamageFlash());
 
-        if(dmg > 0)
+        if (dmg > 0)
         {
             GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform);
         }

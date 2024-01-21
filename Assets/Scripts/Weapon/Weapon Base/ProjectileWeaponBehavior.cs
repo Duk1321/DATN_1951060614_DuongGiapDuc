@@ -17,6 +17,7 @@ public class ProjectileWeaponBehavior : MonoBehaviour
     protected float currentDamage;
     protected float currentSpeed;
     protected float currentCooldownDuation;
+    protected float returnDamage;
     protected int currentPierce;
 
 
@@ -30,7 +31,7 @@ public class ProjectileWeaponBehavior : MonoBehaviour
 
     public float GetCurrentDamage()
     {
-        return currentDamage *= FindObjectOfType<PlayerStat>().CurrentMight;
+        return returnDamage = currentDamage * FindObjectOfType<PlayerStat>().CurrentMight;
     }
 
     protected virtual void Start()
