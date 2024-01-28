@@ -26,6 +26,14 @@ public class MapController : MonoBehaviour
         /*StartedMapSpawn();*/
 
         playerLastPosition = player.transform.position;
+        SpawnChunk(currentChunk.transform.Find("Up").position);
+        SpawnChunk(currentChunk.transform.Find("Up Right").position);
+        SpawnChunk(currentChunk.transform.Find("Up Left").position);
+        SpawnChunk(currentChunk.transform.Find("Down").position);
+        SpawnChunk(currentChunk.transform.Find("Down Left").position);
+        SpawnChunk(currentChunk.transform.Find("Down Right").position);
+        SpawnChunk(currentChunk.transform.Find("Right").position);
+        SpawnChunk(currentChunk.transform.Find("Left").position);
     }
 
     void Update()

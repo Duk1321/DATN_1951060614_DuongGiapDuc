@@ -16,4 +16,11 @@ public class SceneController : MonoBehaviour
         //Debug.Log("EXIT PRESSED");
         Application.Quit();
     }
+
+    public void BackInSelect()
+    {
+        SceneManager.LoadScene("Title Screen");
+        CharacterSelector.instance.DestroySingleton();
+        Time.timeScale = 1f;
+    }
 }

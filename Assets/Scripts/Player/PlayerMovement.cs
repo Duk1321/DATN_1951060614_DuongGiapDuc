@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
+
         moveDir = new Vector2(moveX, moveY).normalized;
 
         if(moveDir.x != 0)

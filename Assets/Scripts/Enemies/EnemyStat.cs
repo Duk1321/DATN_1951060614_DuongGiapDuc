@@ -10,7 +10,7 @@ public class EnemyStat : MonoBehaviour
 
     //current stat
     [HideInInspector]
-    public float currenMoveSpeed;
+    public float currentMoveSpeed;
     [HideInInspector]
     public float currentHealth;
     [HideInInspector]
@@ -29,7 +29,7 @@ public class EnemyStat : MonoBehaviour
 
     void Awake()
     {
-        currenMoveSpeed = enemyData.MoveSpeed;
+        currentMoveSpeed = enemyData.MoveSpeed;
         currentHealth = enemyData.MaxHealth;
         currentDamage = enemyData.Damage;
     }

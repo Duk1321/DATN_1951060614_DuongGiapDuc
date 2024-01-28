@@ -185,6 +185,7 @@ public class InventoryManager : MonoBehaviour
                                 //set the description and name of the weapon in the next level
                                 upgradeOption.upgradeDescriptionDisplay.text = chosenWeaponUpgrade.weaponData.NextLevelPrefab.GetComponent<WeaponController>().weaponData.Description;
                                 upgradeOption.upgradeNameDisplay.text = chosenWeaponUpgrade.weaponData.NextLevelPrefab.GetComponent<WeaponController>().weaponData.Name;
+                                upgradeOption.upgradeIcon.sprite = chosenWeaponUpgrade.weaponData.NextLevelPrefab.GetComponent<WeaponController>().weaponData.Icon;
                             }
                             break;
                         }
@@ -199,9 +200,10 @@ public class InventoryManager : MonoBehaviour
                         //Apply initial description and name
                         upgradeOption.upgradeDescriptionDisplay.text = chosenWeaponUpgrade.weaponData.Description;
                         upgradeOption.upgradeNameDisplay.text = chosenWeaponUpgrade.weaponData.Name;
+                        upgradeOption.upgradeIcon.sprite = chosenWeaponUpgrade.weaponData.Icon;
                     }
 
-                    upgradeOption.upgradeIcon.sprite = chosenWeaponUpgrade.weaponData.Icon;
+                   
                 }
             }
             else if(upgradeType == 2)

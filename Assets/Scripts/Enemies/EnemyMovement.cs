@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     EnemyStat enemy;
     Transform player;
+    Rigidbody2D rb;
 
     Vector2 knockbackVelocity;
     float knockbackDuration;
@@ -15,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
     {
         enemy = GetComponent<EnemyStat>();
         player = FindObjectOfType<PlayerMovement>().transform;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -27,7 +29,9 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemy.currenMoveSpeed * Time.deltaTime);
+            Vector2 direction = player.position - transform.position;
+            direction.Normalize();
+            rb.velocity = new Vector2(direction.x * enemy.currentMoveSpeed, direction.y * enemy.currentMoveSpeed);
         }
     }
 

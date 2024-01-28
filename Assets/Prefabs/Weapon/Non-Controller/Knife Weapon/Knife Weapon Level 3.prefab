@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4662796140046474472}
   m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: -1.0149586, y: -2.8751848, z: 0}
+  m_LocalPosition: {x: -1.0607, y: -2.905, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 97238103
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 501655144603343319, guid: b9e18afec71f15d47b8963a81222ed55, type: 3}
+  m_Sprite: {fileID: -2560651959037615519, guid: b9e18afec71f15d47b8963a81222ed55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a10ca8974040940bdfcb9e3f0b366f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 7f040d6849c863c46a969a300ff3248c, type: 2}
+  weaponData: {fileID: 11400000, guid: 714ce87ee5aded34ebdf3991c4d1a62f, type: 2}
   destroyAfterSeconds: 2
 --- !u!60 &942510328902214319
 PolygonCollider2D:
@@ -115,8 +115,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6875, y: 0.75}
+    pivot: {x: 0.59049964, y: 0.52240497}
+    oldSize: {x: 0.75, y: 0.75}
     newSize: {x: 0.6875, y: 0.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -124,21 +124,23 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.26479292, y: 0.3689631}
-      - {x: -0.17373693, y: -0.10774479}
-      - {x: -0.2373618, y: -0.054972213}
-      - {x: -0.30345953, y: -0.11489525}
-      - {x: -0.2458554, y: -0.18297203}
-      - {x: -0.35381138, y: -0.278759}
-      - {x: -0.31960297, y: -0.34682813}
-      - {x: -0.2640765, y: -0.3674597}
-      - {x: -0.21275784, y: -0.3294406}
-      - {x: -0.20844857, y: -0.28017682}
-      - {x: -0.09067171, y: -0.27036193}
-      - {x: -0.0808388, y: -0.19305798}
-      - {x: 0.07307196, y: -0.039227217}
-      - {x: 0.3498918, y: 0.25031692}
-      - {x: 0.35179925, y: 0.3226808}
+    - - {x: 0.27977034, y: 0.33558154}
+      - {x: -0.17018159, y: -0.09246823}
+      - {x: -0.24202348, y: -0.017341733}
+      - {x: -0.28631517, y: -0.07057261}
+      - {x: -0.21710977, y: -0.13828985}
+      - {x: -0.33455053, y: -0.24464057}
+      - {x: -0.39061242, y: -0.17397194}
+      - {x: -0.4381984, y: -0.21956216}
+      - {x: -0.34828925, y: -0.37817007}
+      - {x: -0.26364872, y: -0.38756013}
+      - {x: -0.22743504, y: -0.3783552}
+      - {x: -0.18060501, y: -0.35406062}
+      - {x: -0.113680094, y: -0.29761198}
+      - {x: -0.12088649, y: -0.20219178}
+      - {x: 0.02515908, y: -0.12370838}
+      - {x: 0.2566625, y: 0.12327807}
+      - {x: 0.29722932, y: 0.19439133}
 --- !u!50 &1389649931431351213
 Rigidbody2D:
   serializedVersion: 4
